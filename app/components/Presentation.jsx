@@ -1,5 +1,4 @@
 "use client";
-// components/Presentation.js
 import { useEffect, useRef } from "react";
 import Reveal from "reveal.js";
 import { chapter_03 } from "../data/chapter_03";
@@ -10,16 +9,26 @@ export default function Presentation() {
   const deckRef = useRef(null);
 
   useEffect(() => {
-    const deck = new Reveal(deckRef.current, {
-      controls: true,
-      progress: true,
-      center: true,
-      transition: "slide", // Transition effect
-    });
+    if (deckRef.current) {
+      const deck = new Reveal(deckRef.current, {
+        controls: true,
+        progress: true,
+        center: true,
+        transition: "slide",
+      });
 
-    deck.initialize();
+      deck.initialize();
 
-    return () => deck.destroy();
+      return () => {
+        try {
+          if (deck?.isReady()) {
+            deck.destroy();
+          }
+        } catch (e) {
+          console.warn("Reveal.js destroy call failed.", e);
+        }
+      };
+    }
   }, []);
 
   return (
