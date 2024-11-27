@@ -17,7 +17,10 @@ const WordPage = ({ chapter }) => {
   const currentWord = words?.[currentWordIndex] || {};
 
   const navigateToNextWord = () => {
-    if (currentCategoryIndex === chapter.length - 1 && currentWordIndex === words.length - 1) {
+    if (
+      currentCategoryIndex === chapter.length - 1 &&
+      currentWordIndex === words.length - 1
+    ) {
       return; // At the last word of the last category
     }
     if (currentWordIndex < words.length - 1) {
@@ -49,20 +52,19 @@ const WordPage = ({ chapter }) => {
     setShowDetails(false); // Return to Word component
   };
 
-  // Handle swipe gestures
   const swipeHandlers = useSwipeable({
-    onSwipedLeft: navigateToNextWord, // Equivalent to ArrowRight
-    onSwipedRight: navigateToPreviousWord, // Equivalent to ArrowLeft
-    onSwipedDown: navigateToDetails, // Equivalent to ArrowDown
-    onSwipedUp: navigateBackFromDetails, // Equivalent to ArrowUp
-    preventDefaultTouchmoveEvent: true, // Prevent scrolling while swiping
-    trackMouse: false, // Only track touch gestures, not mouse drags
+    onSwipedLeft: !showDetails ? navigateToNextWord : undefined,
+    onSwipedRight: !showDetails ? navigateToPreviousWord : undefined,
+    onSwipedUp: !showDetails ? navigateToDetails : undefined,
+    onSwipedDown: navigateBackFromDetails,
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: false,
   });
 
   useEffect(() => {
     const handleKeyPress = (event) => {
       if (showDetails) {
-        if (event.key === "ArrowUp") {
+        if (event.key === "ArrowDown") {
           navigateBackFromDetails(); // Return to Word component
         }
         return;
@@ -72,7 +74,7 @@ const WordPage = ({ chapter }) => {
         navigateToNextWord();
       } else if (event.key === "ArrowLeft") {
         navigateToPreviousWord();
-      } else if (event.key === "ArrowDown") {
+      } else if (event.key === "ArrowUp") {
         navigateToDetails();
       }
     };
@@ -89,10 +91,12 @@ const WordPage = ({ chapter }) => {
   return (
     <div
       {...swipeHandlers} // Attach swipe handlers to the main container
-      className="w-screen max-w-4xl mx-auto"
-    >
+      className="w-screen max-w-4xl mx-auto">
       {!showDetails ? (
-        <Word word={currentWord.word || "No word available"} partOfSpeech={category} />
+        <Word
+          word={currentWord.word || "No word available"}
+          partOfSpeech={category}
+        />
       ) : (
         <DetailComponent
           definition={currentWord.definition || "No definition available"}
