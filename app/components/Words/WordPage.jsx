@@ -91,7 +91,7 @@ const WordPage = ({ chapter }) => {
   return (
     <div
       {...swipeHandlers} // Attach swipe handlers to the main container
-      className="w-screen max-w-4xl mx-auto">
+      className="w-screen h-screen max-w-4xl mx-auto">
       {!showDetails ? (
         <Word
           word={currentWord.word || "No word available"}
