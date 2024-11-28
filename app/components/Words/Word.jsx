@@ -13,7 +13,7 @@ const Word = ({ word, partOfSpeech, isFirstWord, isLastWord }) => {
         <div className="flex flex-col h-screen items-center justify-center px-4">
           <Fade duration="2000">
             <div className="flex flex-row items-center justify-center">
-              <div className="mr-3 md:mr-20 lg:mr-52" style={{ opacity: isFirstWord ? 0.3 : 1 }}>
+              <div className="mr-3 md:mr-20 lg:mr-52" style={{ opacity: isFirstWord ? 0.0 : 1 }}>
                 <Arrow direction="left" />
               </div>
               <h1 className="font-bold underline underline-offset-4 md:underline-offset-8 lg:underline-offset-[15px] decoration-4 md:decoration-8 lg:decoration-[15px] decoration-gray-800">
@@ -23,7 +23,7 @@ const Word = ({ word, partOfSpeech, isFirstWord, isLastWord }) => {
                   </span>
                 ))}
               </h1>
-              <div className="ml-3 md:ml-20 lg:ml-52" style={{ opacity: isLastWord ? 0.3 : 1 }}>
+              <div className="ml-3 md:ml-20 lg:ml-52" style={{ opacity: isLastWord ? 0.0 : 1 }}>
                 <Arrow direction="right" />
               </div>
             </div>
