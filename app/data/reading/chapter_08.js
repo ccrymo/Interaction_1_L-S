@@ -1,4 +1,4 @@
-export const chapter_07 = [
+export const chapter_08 = [
   {
     category: "Nouns",
     words: [
