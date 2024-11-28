@@ -14,10 +14,10 @@ export default function Home() {
     <div className="flex flex-col h-screen items-center justify-center">
       <h1 className="  mb-10 text-4xl md:text-4xl lg:text-6xl font-bold text-neutral-400">
         Interactions 1:
-        <span className="mb-10 text-4xl md:text-4xl lg:text-6xl font-bold text-lime-600">
+        <div className="mb-10 text-4xl md:text-4xl lg:text-6xl font-bold text-lime-600">
           {" "}
           L&S
-        </span>{" "}
+        </div>{" "}
       </h1>
       <ul className="space-y-3 ">
         {chapters.map((chapter) => (
@@ -26,7 +26,7 @@ export default function Home() {
               href={chapter.path}
               className="text-4xl md:text-6xl lg:text-6xl font-bold hover:text-lime-200"
             >
-              <button className="flex flex-col mb-2 bg-gradient-to-r from-neutral-700 to-neutral-900 hover:from-green-800 hover:to-green-950 text-white font-bold py-4 px-20 items-center">
+              <button className="flex flex-col max-w-screen-sm mb-2 bg-gradient-to-r from-neutral-700 to-neutral-900 hover:from-green-800 hover:to-green-950 text-white font-bold py-4 px-20 items-center">
                 {chapter.title}
               </button>
             </Link>
