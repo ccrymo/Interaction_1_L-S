@@ -36,7 +36,7 @@ const Arrow = ({ direction }) => {
       case "left":
         return "M20 10 L10 20 L20 30";
       case "right":
-        return "M10 20 L20 10 L20 30";
+        return "M10 10 L20 20 L10 30";
       default:
         return "";
     }

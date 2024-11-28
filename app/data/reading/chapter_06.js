@@ -1,0 +1,245 @@
+export const chapter_06
+ = [
+  {
+    category: "Verbs",
+    words: [
+      {
+        word: "agree",
+        synonym: "concur",
+        antonym: "disagree",
+        definition: "To have the same opinion or belief",
+      },
+      {
+        word: "contradict",
+        synonym: "oppose",
+        antonym: "agree",
+        definition: "To state the opposite of what someone else has said",
+      },
+      {
+        word: "describe",
+        synonym: "depict",
+        antonym: "-",
+        definition: "To give an account in words",
+      },
+      {
+        word: "develop",
+        synonym: "evolve",
+        antonym: "stagnate",
+        definition: "To grow or cause to grow and become more mature",
+      },
+      {
+        word: "greet",
+        synonym: "welcome",
+        antonym: "ignore",
+        definition: "To welcome someone with words or actions",
+      },
+      {
+        word: "invent",
+        synonym: "devise",
+        antonym: "destroy",
+        definition: "To create something new",
+      },
+    ],
+  },
+  {
+    category: "Nouns",
+    words: [
+      {
+        word: "architecture",
+        synonym: "building design",
+        antonym: "-",
+        definition: "The art and science of designing buildings",
+      },
+      {
+        word: "attention",
+        synonym: "focus",
+        antonym: "neglect",
+        definition: "The act of focusing the mind on something",
+      },
+      {
+        word: "civilization",
+        synonym: "society",
+        antonym: "barbarism",
+        definition: "A complex society with culture and technology",
+      },
+      {
+        word: "contradiction",
+        synonym: "counter",
+        antonym: "confirm",
+        definition: "A statement of the opposite of what someone else has said",
+      },
+      {
+        word: "customer",
+        synonym: "client",
+        antonym: "-",
+        definition: "A person who buys goods or services",
+      },
+      {
+        word: "experience",
+        synonym: "exposure",
+        antonym: "inexperience",
+        definition: "The knowledge gained from doing or seeing things",
+      },
+      {
+        word: "legacy",
+        synonym: "inheritance",
+        antonym: "-",
+        definition: "Something passed down from a predecessor",
+      },
+      {
+        word: "media",
+        synonym: "press",
+        antonym: "-",
+        definition: "Means of mass communication (like TV, newspapers)",
+      },
+      {
+        word: "medicine",
+        synonym: "medication",
+        antonym: "-",
+        definition: "A substance used for treating illness",
+      },
+      {
+        word: "pain",
+        synonym: "discomfort",
+        antonym: "comfort",
+        definition: "A physical feeling caused by injury or illness",
+      },
+      {
+        word: "society",
+        synonym: "community",
+        antonym: "isolation",
+        definition: "Organized groups of people living together",
+      },
+      {
+        word: "tourist",
+        synonym: "traveler",
+        antonym: "local",
+        definition: "A person who travels for pleasure",
+      },
+    ],
+  },
+  {
+    category: "Adjectives",
+    words: [
+      {
+        word: "amazing",
+        synonym: "astonishing",
+        antonym: "ordinary",
+        definition: "Causing great surprise or wonder",
+      },
+      {
+        word: "annoyed",
+        synonym: "irritated",
+        antonym: "pleased",
+        definition: "Feeling bothered or irritated",
+      },
+      {
+        word: "clear",
+        synonym: "obvious",
+        antonym: "unclear",
+        definition: "Easy to understand; obvious",
+      },
+      {
+        word: "enthusiastic",
+        synonym: "excited",
+        antonym: "indifferent",
+        definition: "Showing intense and eager enjoyment and interest",
+      },
+      {
+        word: "excellent",
+        synonym: "superb",
+        antonym: "poor",
+        definition: "Extremely good or outstanding",
+      },
+      {
+        word: "knowing",
+        synonym: "informed",
+        antonym: "ignorant",
+        definition: "Showing or suggesting that one has knowledge or awareness",
+      },
+      {
+        word: "opposing",
+        synonym: "contrary",
+        antonym: "supporting",
+        definition: "To be against or in conflict with",
+      },
+      {
+        word: "polite",
+        synonym: "courteous",
+        antonym: "rude",
+        definition: "Showing respect and consideration",
+      },
+      {
+        word: "rude",
+        synonym: "impolite",
+        antonym: "polite",
+        definition: "Showing a lack of respect or politeness",
+      },
+      {
+        word: "scientific",
+        synonym: "empirical",
+        antonym: "unscientific",
+        definition: "Based on or characterized by science and its methods",
+      },
+      {
+        word: "social",
+        synonym: "societal",
+        antonym: "solitary",
+        definition: "Relating to society or its organization",
+      },
+      {
+        word: "soft",
+        synonym: "smooth",
+        antonym: "hard",
+        definition: "Not hard or firm in texture",
+      },
+      {
+        word: "successful",
+        synonym: "prosperous",
+        antonym: "unsuccessful",
+        definition: "Having achieved popularity, profit, or distinction",
+      },
+      {
+        word: "terrible",
+        synonym: "awful",
+        antonym: "wonderful",
+        definition: "Extremely bad or serious",
+      },
+    ],
+  },
+  {
+    category: "Adverbs",
+    words: [
+      {
+        word: "convincingly",
+        synonym: "persuasively",
+        antonym: "unconvincingly",
+        definition: "In a way that persuades someone that something is true",
+      },
+      {
+        word: "loudly",
+        synonym: "noisily",
+        antonym: "quietly",
+        definition: "With a lot of noise",
+      },
+      {
+        word: "patiently",
+        synonym: "calmly",
+        antonym: "impatiently",
+        definition: "In a way that shows tolerance of delays or suffering",
+      },
+      {
+        word: "politely",
+        synonym: "courteously",
+        antonym: "rudely",
+        definition: "In a respectful and considerate manner",
+      },
+      {
+        word: "rudely",
+        synonym: "discourteously",
+        antonym: "politely",
+        definition: "In a way that shows a lack of respect or politeness",
+      },
+    ],
+  },
+];

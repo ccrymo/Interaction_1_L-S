@@ -7,8 +7,8 @@ import Arrow from "../Arrow";
 
 const DetailComponent = ({ definition, synonym, antonym }) => {
   return (
-    <>
-      <div className="flex flex-col top-10 items-center justify-center">
+    <div className="flex flex-col h-screen">
+      <div className="flex flex-col mt-20 items-center justify-center">
         <Arrow direction="up" />
       </div>
       <div className="flex flex-col h-screen items-start justify-center px-4 relative">
@@ -34,7 +34,7 @@ const DetailComponent = ({ definition, synonym, antonym }) => {
           />
         </Fade>
       </div>
-    </>
+    </div>
   );
 };
 

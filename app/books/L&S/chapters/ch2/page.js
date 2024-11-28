@@ -1,5 +1,5 @@
-import WordPage from '../../components/Words/WordPage'
-import { chapter_02 } from "@/app/data/chapter_02";
+import WordPage from '../../../../components/Words/WordPage'
+import { chapter_02 } from "@/app/data/l&s/chapter_02";
 
 
 export default function Home() {

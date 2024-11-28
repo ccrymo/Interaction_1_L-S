@@ -94,9 +94,14 @@ const WordPage = ({ chapter }) => {
       className="w-screen h-screen max-w-4xl mx-auto">
       {!showDetails ? (
         <Word
-          word={currentWord.word || "No word available"}
-          partOfSpeech={category}
-        />
+        word={currentWord.word || "No word available"}
+        partOfSpeech={category}
+        isFirstWord={currentCategoryIndex === 0 && currentWordIndex === 0}
+        isLastWord={
+          currentCategoryIndex === chapter.length - 1 &&
+          currentWordIndex === words.length - 1
+        }
+      />
       ) : (
         <DetailComponent
           definition={currentWord.definition || "No definition available"}
