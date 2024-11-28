@@ -13,7 +13,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Interaction 1 > Listening & Speaking ",
+  title: "Interaction 1 > Reading and L&S ",
   description: "Vocabulary and Skills breakdown",
 };
 

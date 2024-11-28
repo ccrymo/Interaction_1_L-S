@@ -13,9 +13,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col h-screen items-center justify-center">
-      <h1 className="  mb-10 text-4xl md:text-4xl lg:text-6xl font-bold text-neutral-400">
+      <h1 className="flex flex-col items-center justify-center top-0 text-4xl md:text-4xl lg:text-6xl font-bold text-neutral-400">
         Interactions 1:
-        <div className="mb-10 text-4xl md:text-4xl lg:text-6xl font-bold text-teal-300">
+        <div className="mb-8 text-4xl md:text-4xl lg:text-6xl font-bold text-sky-300 ">
           {" "}
           Reading
         </div>{" "}
@@ -25,9 +25,9 @@ export default function Home() {
           <li key={chapter.id}>
             <Link
               href={chapter.path}
-              className="text-4xl md:text-6xl lg:text-6xl font-bold hover:text-lime-200"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold hover:text-sky-200"
             >
-              <button className="flex flex-col max-w-screen-sm mb-2 bg-gradient-to-r from-neutral-700 to-neutral-900 hover:from-teal-600 hover:to-teal-950 text-white font-bold py-4 px-20 items-center">
+              <button className="flex flex-col max-w-screen-sm mb-2 bg-gradient-to-r from-neutral-700 to-neutral-900 hover:from-sky-400 hover:to-sky-600 hover:text-sky-950 text-white font-bold py-4 px-20 items-center">
                 {chapter.title}
               </button>
             </Link>
