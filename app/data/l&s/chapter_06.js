@@ -46,9 +46,9 @@ export const chapter_06 = [
       },
       {
         word: "passage",
-        synonym: "excerpt, corridor",
+        synonym: "stage in life, excerpt, corridor",
         antonym: "blockage",
-        definition: "A section of text or a way/path through.",
+        definition: "A period of time,a section of text or a way/path through.",
       },
       {
         word: "silverware",
@@ -139,7 +139,7 @@ export const chapter_06 = [
       },
       {
         word: "used to",
-        synonym: "formerly, in the past",
+        synonym: "[it] became a habit, formerly, in the past",
         antonym: "new to, unfamiliar with",
         definition: "Accustomed to; in the past but not now.",
       },
