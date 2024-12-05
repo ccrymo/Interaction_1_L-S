@@ -1,157 +1,119 @@
 const examRevision = {
-    Introduction: {
-      title: "Listening and Speaking Final Exam Revision",
-      studyTips: [
-        "Study vocabulary for each chapter",
-        "Practice audios",
-        "Study maps",
-      ],
-      examContent: "All chapters",
-      questionTypes: "Refer to slides",
+  Introduction: {
+    title: "Listening and Speaking Final Exam Revision",
+    studyTips: [
+      "Study vocabulary for each chapter",
+      "Practice audios",
+      "Study maps",
+    ],
+    examContent: "All chapters",
+    questionTypes: "Refer to slides",
+  },
+  listeningExam: {
+    format: {
+      totalTracks:
+        "5 Audio Tracks, each track has 5 questions, all multiple choice",
+
+      listenTimes: "Each track will be listened to twice",
     },
-    listeningExam: {
-      format: {
-        totalTracks: 5,
-        questionsPerTrack: 5,
-        listenTimes: "Each track will be listened to twice",
-      },
-      chaptersCovered: [
-        "Chapter 1: Academic Life",
-        "Chapter 3: Living to Eat or Eating to Live",
-        "Chapter 4: Directions",
-        "Chapter 6: Different Cultures",
-      ],
-      noteTakingTechniques: [
-        "Write headings and subheadings",
-        "Use indentation",
-        "Write only key words",
-        "Use abbreviations and symbols",
-      ],
-    },
-    speakingExam: {
-      bodyLanguageTips: [
-        "Stand tall with shoulders back",
-        "Use purposeful hand gestures",
-        "Match facial expressions to your message",
-      ],
-      audienceRelationsTips: ["Create intimacy through eye contact"],
-      voiceControlTips: [
-        "Use tone variation",
-        "Adjust volume based on audience size",
-      ],
-      deliveryTips: [
-        "Practice multiple times for refinement",
-        "Engage with personal stories",
-      ],
-      gradingCriteria: [
-        "Fluency",
-        "Grammar",
-        "Vocabulary",
-        "Details",
-        "Pronunciation",
-      ],
-      speakingPromptsTopic: {
-        "Academic Life Around the World": {
-          title: "Topic 1: Academic Life Around the World",
-          prompts: [
-            {
-              questions: [
-                "Studying abroad is a great opportunity.",
-                "What issues can students face while studying abroad?",
-                "Explain why studying abroad can be beneficial."
-              ]
-            },
-            {
-              questions: [
-                "Dormitory Living.",
-                "Advantages and disadvantages of dormitory living.",
-                "The effects on academic performance."
-              ]
-            }
-          ]
-        },
-        "Experiencing Nature": {
-          title: "Topic 2: Experiencing Nature",
-          prompts: [
-            {
-              questions: [
-                "Sports help develop character in children and Teens.",
-                "Benefits playing sports can have.",
-                "Examples of different sports that help develop character."
-              ]
-            },
-            {
-              questions: [
-                "Taking a vacation is beneficial.",
-                "Which seasons are best for vacations?",
-                "Best places to visit/things to do on vacation and why?"
-              ]
-            }
-          ]
-        },
-        "Living to Eat or Eating to Live": {
-          title: "Topic 3: Living to Eat or Eating to Live",
-          prompts: [
-            {
-              questions: [
-                "Exotic and weirdest food around the world.",
-                "Examples of some different foods around the world that are weird.",
-                "Your experience or opinion on an exotic or weird food item."
-              ]
-            },
-            {
-              questions: [
-                "Healthy and unhealthy food.",
-                "Give examples of some healthy food. What makes it healthy?",
-                "Explain the disadvantages of empty calories.",
-                "Give examples of a balanced diet."
-              ]
-            }
-          ]
-        },
-        "In the Community": {
-          title: "Topic 4: In the Community",
-          prompts: [
-            {
-              questions: [
-                "The importance of volunteering.",
-                "Explain what volunteering means.",
-                "Give details of the benefits of volunteering.",
-                "Give examples of places where people can volunteer in Saudi Arabia."
-              ]
-            },
-            {
-              questions: [
-                "A great community.",
-                "What interesting places does your community have, where are they?",
-                "Which outdoor activities are popular in your community?"
-              ]
-            }
-          ]
-        },
-        "Home": {
-          title: "Topic 5: Home",
-          prompts: [
-            {
-              questions: [
-                "What makes a family home comfortable?",
-                "How is your family home decorated?",
-                "Which is your favorite room in your family home? Why?",
-                "If you could build an extra room in your family home, which room would you build?"
-              ]
-            },
-            {
-              questions: [
-                "Swapping houses for a vacation: pros and cons.",
-                "Explain what home exchange is.",
-                "Explain why people like to exchange homes.",
-                "What issues can there be in swapping homes?"
-              ]
-            }
-          ]
-        },
-      },
-    },
-  };
-  
-  export default examRevision;
+    chaptersCovered: [
+      "Chapter 1: Academic Life",
+      "Chapter 3: Living to Eat or Eating to Live",
+      "Chapter 4: Directions",
+      "Chapter 6: Different Cultures",
+    ],
+    noteTakingTechniques: [
+      "Write headings and subheadings",
+      "Use indentation",
+      "Write only key words",
+      "Use abbreviations and symbols",
+      "Use Mind Maps, Concept Maps and Matrix diagrams",
+    ],
+  },
+  speakingExam: {
+    bodyLanguageTips: [
+      "Stand tall with shoulders back",
+      "Use purposeful hand gestures",
+      "Match facial expressions to your message",
+    ],
+    audienceRelationsTips: ["Create intimacy through eye contact"],
+    voiceControlTips: [
+      "Use tone variation",
+      "Adjust volume based on audience size",
+    ],
+    deliveryTips: [
+      "Practice multiple times for refinement",
+      "Engage with personal stories",
+    ],
+    gradingCriteria: [
+      "Fluency",
+      "Grammar",
+      "Vocabulary",
+      "Details",
+      "Pronunciation",
+    ],
+  },
+  speakingPromptsTopic: {
+    Topic1:["Academic Life around the world."],
+    Topic2:["Experiencing Nature."],
+    Topic3:["Living to Eat or Eating to live."],
+    Topic4:["In the Community"],
+    Topic5:["Cultures around the World"],
+  },
+  AcademicLifeAroundTheWorld: {
+    StudyingAbroadIsAGreatOpportunity: [
+      "What issues can students face while studying abroad?",
+      "Explain why studying abroad can be beneficial.",
+    ],
+    DormitoryLiving: [
+      "Advantages and disadvantages of dormitory living.",
+      "The effects on academic performance.",
+    ],
+  },
+  ExperiencingNature: {
+    SportsHelpDevelopCharacterInChildrenAndTeens: [
+      "Benefits playing sports can have.",
+      "Examples of different sports that help develop character.",
+    ],
+    TakingAVacationIsBeneficial: [
+      "Which seasons are best for vacations?",
+      "Best places to visit/things to do on vacation and why?",
+    ],
+  },
+  LivingToEatorEatingToLive: {
+    ExoticAndWeirdestFoodAroundTheWorld: [
+      "Examples of some different foods around the world that are weird.",
+      "Your experience or opinion on an exotic or weird food item.",
+    ],
+    HealthyAndUnhealthyFood: [
+      "Give examples of some healthy food. What makes it healthy?",
+      "Explain the disadvantages of empty calories.",
+      "Give examples of a balanced diet.",
+    ],
+  },
+  InTheCommunity: {
+    TheImportanceOfVolunteering: [
+      "Explain what volunteering means.",
+      "Give details of the benefits of volunteering.",
+      "Give examples of places where people can volunteer in Saudi Arabia.",
+    ],
+    AGreatCommunity: [
+      "What interesting places does your community have, where are they?",
+      "Which outdoor activities are popular in your community?",
+    ],
+  },
+  CulturesAroundTheWorld: {
+    LearningAndExperiencingNewCustoms: [
+      "What do you find most exciting about learning new customs from other cultures?",
+      "Have you ever followed a custom or tradition from another culture? What was it?",
+      "If you could introduce a custom from your culture to the world, which one would you choose? Why?",
+    ],
+    ComingOfAgeCeremoniesInDifferentCulturesProsAndCons: [
+      "Explain what a coming-of-age ceremony is.",
+      "Why do you think coming-of-age ceremonies are important in some cultures?",
+      "What are the challenges or issues young people might face during these ceremonies?",
+    ],
+  },
+};
+
+export default examRevision;

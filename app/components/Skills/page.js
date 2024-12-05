@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { useState, useCallback, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useSwipeable } from 'react-swipeable';
-import examRevision from '../../data/l&s/Skills/all_chapters_skills';
-import { ProgressHeader } from '../UI/ProgressBar';
+import React from "react";
+import { useState, useCallback, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useSwipeable } from "react-swipeable";
+import examRevision from "../../data/l&s/Skills/all_chapters_skills";
+import { ProgressHeader } from "../UI/ProgressBar";
 
 const capitalizeFirstLetter = (string) => {
-  if (typeof string !== 'string') return string;
+  if (typeof string !== "string") return string;
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
 const TitleSlide = React.memo(({ title }) => (
   <div className="flex items-center justify-center h-[calc(100vh-200px)]">
-    <motion.h2 
+    <motion.h2
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       className="text-6xl font-bold text-lime-400 text-center px-6"
@@ -28,147 +28,155 @@ const ContentSlide = React.memo(({ title, content }) => {
   const renderContent = useCallback((data) => {
     if (!data) return null;
 
-    return Object.entries(data).map(([key, value]) => {
-      if (key === 'title') return null;
+    return Object.entries(data)
+      .map(([key, value]) => {
+        if (key === "title") return null;
 
-      if (Array.isArray(value)) {
-        return (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-neutral-900/30 p-6 rounded-xl backdrop-blur-sm mb-6"
-            key={key}
-          >
-            <h3 className="text-2xl font-bold mb-4 text-lime-400">
-              {capitalizeFirstLetter(key.split(/(?=[A-Z])/).join(" "))}
-            </h3>
-            <ul className="space-y-3">
-              {value.map((item, index) => (
-                <motion.li 
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="text-white list-disc ml-6"
-                >
-                  {typeof item === 'object' ? (
-                    <div className="mb-3">
-                      {item.topic && (
-                        <h4 className="text-lime-400 font-semibold mb-2">
-                          {capitalizeFirstLetter(item.topic)}
-                        </h4>
-                      )}
-                      {item.questions && (
-                        <ul className="ml-4 space-y-2">
-                          {item.questions.map((q, qIndex) => (
-                            <li key={qIndex} className="text-neutral-200 list-disc">
-                              {capitalizeFirstLetter(q)}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ) : (
-                    <span>{capitalizeFirstLetter(item)}</span>
+        if (Array.isArray(value)) {
+          return (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-neutral-900/30 pt-6 px-6 rounded-xl backdrop-blur-sm "
+              key={key}
+            >
+              <h3 className="text-2xl font-bold mb-4 text-lime-400">
+                {capitalizeFirstLetter(key.split(/(?=[A-Z])/).join(" "))}
+              </h3>
+              <ul className="space-y-3">
+                {value.map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="text-white list-disc ml-6"
+                  >
+                    {typeof item === "object" ? (
+                      <div className="mb-3">
+                        {item.topic && (
+                          <h4 className="text-lime-400 font-semibold mb-2">
+                            {capitalizeFirstLetter(item.topic)}
+                          </h4>
+                        )}
+                        {item.questions && (
+                          <ul className="ml-4 space-y-2">
+                            {item.questions.map((q, qIndex) => (
+                              <li
+                                key={qIndex}
+                                className="text-neutral-200 list-disc"
+                              >
+                                {capitalizeFirstLetter(q)}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ) : (
+                      <span>{capitalizeFirstLetter(item)}</span>
+                    )}
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          );
+        }
+
+        if (typeof value === "object" && value !== null) {
+          return (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-neutral-900/30  px-6 rounded-xl -xl backdrop-blur-sm "
+              key={key}
+            >
+              <h3 className="text-2xl font-bold text-lime-400 mb-4">
+                {capitalizeFirstLetter(key.split(/(?=[A-Z])/).join(" "))}
+              </h3>
+              {Object.entries(value).map(([subKey, subValue]) => (
+                <div key={subKey} className="mb-4">
+                  {subValue.title && (
+                    <h4 className="text-xl font-semibold text-lime-400 mb-2">
+                      {capitalizeFirstLetter(subValue.title)}
+                    </h4>
                   )}
-                </motion.li>
+                  {subValue.prompts && (
+                    <ul className="space-y-4">
+                      {subValue.prompts.map((prompt, pIndex) => (
+                        <li
+                          key={pIndex}
+                          className="bg-neutral-900/20 p-4 rounded-lg"
+                        >
+                          {prompt.questions && (
+                            <ul className="space-y-2">
+                              {prompt.questions.map((question, qIndex) => (
+                                <li
+                                  key={qIndex}
+                                  className="text-white list-disc ml-6"
+                                >
+                                  {capitalizeFirstLetter(question)}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {!subValue.title &&
+                    !subValue.prompts &&
+                    (Array.isArray(subValue) ? (
+                      <ul className="space-y-2">
+                        {subValue.map((item, index) => (
+                          <motion.li
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="text-white list-disc ml-6"
+                          >
+                            {capitalizeFirstLetter(item)}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-white ml-4">
+                        {capitalizeFirstLetter(subValue)}
+                      </p>
+                    ))}
+                </div>
               ))}
-            </ul>
-          </motion.div>
-        );
-      }
+            </motion.div>
+          );
+        }
 
-      if (typeof value === 'object' && value !== null) {
         return (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-neutral-900/30 p-6 rounded-xl backdrop-blur-sm mb-6"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="bg-neutral-900/30  px-6 rounded-xl -xl backdrop-blur-sm "
             key={key}
           >
             <h3 className="text-2xl font-bold text-lime-400 mb-4">
               {capitalizeFirstLetter(key.split(/(?=[A-Z])/).join(" "))}
             </h3>
-            {Object.entries(value).map(([subKey, subValue]) => (
-              <div key={subKey} className="mb-4">
-                {subValue.title && (
-                  <h4 className="text-xl font-semibold text-lime-400 mb-2">
-                    {capitalizeFirstLetter(subValue.title)}
-                  </h4>
-                )}
-                {subValue.prompts && (
-                  <ul className="space-y-4">
-                    {subValue.prompts.map((prompt, pIndex) => (
-                      <li key={pIndex} className="bg-neutral-900/20 p-4 rounded-lg">
-                        {prompt.questions && (
-                          <ul className="space-y-2">
-                            {prompt.questions.map((question, qIndex) => (
-                              <li 
-                                key={qIndex}
-                                className="text-white list-disc ml-6"
-                              >
-                                {capitalizeFirstLetter(question)}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {!subValue.title && !subValue.prompts && (
-                  Array.isArray(subValue) ? (
-                    <ul className="space-y-2">
-                      {subValue.map((item, index) => (
-                        <motion.li
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                          className="text-white list-disc ml-6"
-                        >
-                          {capitalizeFirstLetter(item)}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-white ml-4">{capitalizeFirstLetter(subValue)}</p>
-                  )
-                )}
-              </div>
-            ))}
+            <p className="text-white ml-4">{capitalizeFirstLetter(value)}</p>
           </motion.div>
         );
-      }
-
-      return (
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="bg-neutral-900/30 p-6 rounded-xl backdrop-blur-sm mb-6"
-          key={key}
-        >
-          <h3 className="text-2xl font-bold text-lime-400 mb-4">
-            {capitalizeFirstLetter(key.split(/(?=[A-Z])/).join(" "))}
-          </h3>
-          <p className="text-white ml-4">{capitalizeFirstLetter(value)}</p>
-        </motion.div>
-      );
-    }).filter(Boolean);
+      })
+      .filter(Boolean);
   }, []);
 
   return (
     <div className="max-w-4xl mx-auto w-full px-6 py-8 overflow-y-auto h-[calc(100vh-200px)]">
-      <motion.h2 
+      <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="text-4xl font-bold text-lime-400 mb-8 text-center"
       >
         {capitalizeFirstLetter(title.split(/(?=[A-Z])/).join(" "))}
       </motion.h2>
-      <div className="grid grid-cols-1 gap-6">
-        {renderContent(content)}
-      </div>
+      <div className="grid grid-cols-1 gap-1">{renderContent(content)}</div>
     </div>
   );
 });
@@ -176,7 +184,7 @@ const ContentSlide = React.memo(({ title, content }) => {
 const SlidesPage = () => {
   const [state, setState] = useState({
     currentSection: 0,
-    isTitle: true
+    isTitle: true,
   });
 
   const sections = useMemo(() => Object.entries(examRevision), []);
@@ -185,32 +193,59 @@ const SlidesPage = () => {
   const getChapterName = useCallback(() => {
     const sectionKey = currentSection[0];
     switch (sectionKey) {
-      case 'Introduction': return 'Introduction';
-      case 'listeningExam': return 'Listening';
-      case 'speakingExam': return 'Speaking';
-      default: return sectionKey;
+      case "Introduction":
+        return "Introduction";
+      case "listeningExam":
+        return "Listening";
+      case "speakingExam":
+        return "Speaking";
+      case "speakingPromptsTopic":
+        return "Speaking Prompts Topic";
+      case "AcademicLifeAroundTheWorld":
+        return "Academic Life Around The World";
+      case "ExperiencingNature":
+        return "Experiencing Nature";
+      case "LivingToEatorEatingToLive":
+        return "Living To Eat or Eating To Live";
+      case "InTheCommunity":
+        return "In The Community";
+      case "CulturesAroundTheWorld":
+        return "Cultures Around The World";
+      default:
+        return sectionKey;
     }
   }, [currentSection]);
 
-  const totalSlides = 15;
+  const totalSlides = useMemo(() => {
+    let count = 0;
+    for (const section of Object.values(examRevision)) {
+      count += 1; // For the title slide
+      if (typeof section === "object" && section !== null) {
+        count += Object.keys(section).length - 1; // Subtract 1 to exclude the 'title' key if present
+      }
+    }
+    return count;
+  }, [examRevision]);
+
   const currentOverallSlide = useMemo(() => {
     let slideIndex = 0;
     for (let i = 0; i < state.currentSection; i++) {
       const sectionSlides = Object.keys(sections[i][1]).length;
-      slideIndex += sectionSlides > 1 ? sectionSlides * 2 : 2;
+      slideIndex += sectionSlides > 1 ? sectionSlides * 2 : 2; // Each section has a title and content slides
     }
     if (state.isTitle) {
       return slideIndex + 1;
     } else {
-      slideIndex += 1;
-      return slideIndex + (Object.keys(currentSection[1]).length - 1);
+      return slideIndex + 1 + (Object.keys(currentSection[1]).length - 1);
     }
   }, [state, sections, currentSection]);
 
-  const progressPercentage = Math.round((currentOverallSlide / totalSlides) * 100);
+  const progressPercentage = Math.round(
+    (currentOverallSlide / totalSlides) * 100
+  );
 
   const handleNext = useCallback(() => {
-    setState(prev => {
+    setState((prev) => {
       if (prev.isTitle) {
         return { ...prev, isTitle: false };
       }
@@ -223,7 +258,7 @@ const SlidesPage = () => {
   }, [sections.length]);
 
   const handlePrev = useCallback(() => {
-    setState(prev => {
+    setState((prev) => {
       if (!prev.isTitle) {
         return { ...prev, isTitle: true };
       }
@@ -239,32 +274,36 @@ const SlidesPage = () => {
     onSwipedLeft: handleNext,
     onSwipedRight: handlePrev,
     preventDefaultTouchmoveEvent: true,
-    trackMouse: true
+    trackMouse: true,
   });
 
-  const handleKeyPress = useCallback((event) => {
-    if (event.key === 'ArrowRight') handleNext();
-    if (event.key === 'ArrowLeft') handlePrev();
-  }, [handleNext, handlePrev]);
+  const handleKeyPress = useCallback(
+    (event) => {
+      if (event.key === "ArrowRight") handleNext();
+      if (event.key === "ArrowLeft") handlePrev();
+    },
+    [handleNext, handlePrev]
+  );
 
   React.useEffect(() => {
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
   }, [handleKeyPress]);
 
-  const isLastSlide = state.currentSection === sections.length - 1 && !state.isTitle;
+  const isLastSlide =
+    state.currentSection === sections.length - 1 && !state.isTitle;
 
   return (
-    <div 
-      {...handlers} 
+    <div
+      {...handlers}
       className="min-h-screen bg-neutral-900 text-white relative flex flex-col items-center"
     >
       <div className="fixed top-0 left-0 right-0 p-4 bg-neutral-900/80 backdrop-blur-sm z-10">
         <div className="max-w-4xl mx-auto">
-          <ProgressHeader 
+          <ProgressHeader
             chapterName={getChapterName()}
             currentWordIndex={state.isTitle ? 0 : 1}
-            totalWordsInChapter={2}
+            totalWordsInChapter={totalSlides}
             overallProgress={progressPercentage}
           />
         </div>
@@ -281,7 +320,7 @@ const SlidesPage = () => {
           {state.isTitle ? (
             <TitleSlide title={currentSection[0]} />
           ) : (
-            <ContentSlide 
+            <ContentSlide
               title={currentSection[0]}
               content={currentSection[1]}
             />
@@ -291,7 +330,7 @@ const SlidesPage = () => {
 
       <div className="fixed bottom-0 left-0 right-0 p-6 bg-neutral-900/80 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto flex gap-4">
-          <motion.button 
+          <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="flex-1 py-3 px-6 rounded-lg font-bold text-white hover:text-lime-950 bg-neutral-800 hover:bg-lime-500 transition-colors"
@@ -299,18 +338,20 @@ const SlidesPage = () => {
           >
             Previous
           </motion.button>
-          <motion.button 
+          <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className={`flex-1 py-3 px-6 rounded-lg font-bold text-white hover:text-lime-950 ${
-              isLastSlide 
-                ? 'bg-neutral-600 cursor-not-allowed' 
-                : 'bg-neutral-800 hover:bg-lime-500'
+              isLastSlide
+                ? "bg-neutral-600 cursor-not-allowed"
+                : "bg-neutral-800 hover:bg-lime-500"
             } transition-colors`}
             onClick={handleNext}
             disabled={isLastSlide}
           >
-            {!state.isTitle && state.currentSection < sections.length - 1 ? 'Next Section' : 'Next'}
+            {!state.isTitle && state.currentSection < sections.length - 1
+              ? "Next Section"
+              : "Next"}
           </motion.button>
         </div>
       </div>
