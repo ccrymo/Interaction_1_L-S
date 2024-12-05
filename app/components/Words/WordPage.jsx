@@ -4,11 +4,18 @@ import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import Word from "./Word";
 import DetailComponent from "./DetailComponent";
+import { ProgressHeader } from "../UI/ProgressBar";
 
-const WordPage = ({ chapter }) => {
+const WordPage = ({ chapter, chapterName }) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
   const [showDetails, setShowDetails] = useState(false);
+
+  // Calculate total words in the current chapter
+  const totalWordsInChapter = chapter.reduce(
+    (sum, category) => sum + (category.words?.length || 0),
+    0
+  );
 
   // Safely access category and words
   const currentCategory = chapter?.[currentCategoryIndex] || {};
@@ -16,12 +23,16 @@ const WordPage = ({ chapter }) => {
   const category = currentCategory?.category || "";
   const currentWord = words?.[currentWordIndex] || {};
 
+  // Calculate overall word index for progress
+  const overallWordIndex =
+    chapter
+      .slice(0, currentCategoryIndex)
+      .reduce((sum, cat) => sum + (cat.words?.length || 0), 0) +
+    currentWordIndex;
+
   const navigateToNextWord = () => {
-    if (
-      currentCategoryIndex === chapter.length - 1 &&
-      currentWordIndex === words.length - 1
-    ) {
-      return; // At the last word of the last category
+    if (overallWordIndex === totalWordsInChapter - 1) {
+      return; // At the last word of the chapter
     }
     if (currentWordIndex < words.length - 1) {
       setCurrentWordIndex((prev) => prev + 1); // Next word in the same category
@@ -32,8 +43,8 @@ const WordPage = ({ chapter }) => {
   };
 
   const navigateToPreviousWord = () => {
-    if (currentCategoryIndex === 0 && currentWordIndex === 0) {
-      return; // At the first word of the first category
+    if (overallWordIndex === 0) {
+      return; // At the first word of the chapter
     }
     if (currentWordIndex > 0) {
       setCurrentWordIndex((prev) => prev - 1); // Previous word in the same category
@@ -89,19 +100,20 @@ const WordPage = ({ chapter }) => {
   }
 
   return (
-    <div
-      {...swipeHandlers} // Attach swipe handlers to the main container
-      className="w-screen h-screen max-w-4xl mx-auto">
+    <div {...swipeHandlers} className="w-screen h-screen max-w-4xl mx-auto">
+      <ProgressHeader
+        chapterName={chapterName}
+        currentWordIndex={overallWordIndex}
+        totalWordsInChapter={totalWordsInChapter}
+      />
+
       {!showDetails ? (
         <Word
-        word={currentWord.word || "No word available"}
-        partOfSpeech={category}
-        isFirstWord={currentCategoryIndex === 0 && currentWordIndex === 0}
-        isLastWord={
-          currentCategoryIndex === chapter.length - 1 &&
-          currentWordIndex === words.length - 1
-        }
-      />
+          word={currentWord.word || "No word available"}
+          partOfSpeech={category}
+          isFirstWord={overallWordIndex === 0}
+          isLastWord={overallWordIndex === totalWordsInChapter - 1}
+        />
       ) : (
         <DetailComponent
           definition={currentWord.definition || "No definition available"}

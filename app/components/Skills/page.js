@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSwipeable } from 'react-swipeable';
 import { FixedSizeList } from 'react-window';
 import skills from '../../data/l&s/Skills/all_chapters_skills';
+import { ProgressHeader } from '../UI/ProgressBar';
 
 const ListItem = React.memo(({ item, index }) => (
   <motion.li 
@@ -111,15 +112,6 @@ const SlideContent = React.memo(({ title, content }) => {
   );
 });
 
-const ProgressBar = ({ current, total }) => (
-  <div className="w-full bg-neutral-800 rounded-full h-1.5">
-    <div 
-      className="bg-lime-400 h-1.5 rounded-full transition-all duration-300"
-      style={{ width: `${(current / total) * 100}%` }}
-    />
-  </div>
-);
-
 const SlidesPage = () => {
   const [state, setState] = useState({
     currentChapter: 0,
@@ -184,6 +176,10 @@ const SlidesPage = () => {
     };
   }, [handleKeyPress]);
 
+  const isLastSlideInChapter = state.currentSlide === currentChapterSlides.length - 1;
+  const isLastChapter = state.currentChapter === chapters.length - 1;
+  const isLastSlideOverall = isLastSlideInChapter && isLastChapter;
+
   return (
     <div 
       {...handlers} 
@@ -191,17 +187,10 @@ const SlidesPage = () => {
     >
       <div className="fixed top-0 left-0 right-0 p-4 bg-neutral-900/80 backdrop-blur-sm z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="flex justify-between items-center mb-2">
-            <span className="text-lime-400">
-              Chapter {state.currentChapter + 1} of {chapters.length}
-            </span>
-            <span className="text-neutral-400">
-              Slide {state.currentSlide + 1} of {currentChapterSlides.length}
-            </span>
-          </div>
-          <ProgressBar 
-            current={state.currentSlide + 1}
-            total={currentChapterSlides.length}
+          <ProgressHeader 
+            chapterName={`Chapter ${state.currentChapter + 1}`}
+            currentWordIndex={state.currentSlide}
+            totalWordsInChapter={currentChapterSlides.length}
           />
         </div>
       </div>
@@ -221,7 +210,7 @@ const SlidesPage = () => {
         </motion.div>
       </AnimatePresence>
 
-      <div className="fixed bottom-0  left-0 right-0 p-6 bg-neutral-900/80 backdrop-blur-sm">
+      <div className="fixed bottom-0 left-0 right-0 p-6 bg-neutral-900/80 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto flex gap-4">
           <motion.button 
             whileHover={{ scale: 1.02 }}
@@ -234,10 +223,15 @@ const SlidesPage = () => {
           <motion.button 
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex-1 py-3 px-6 rounded-lg font-bold text-white hover:text-lime-950 bg-neutral-800 hover:bg-lime-500 transition-colors"
+            className={`flex-1 py-3 px-6 rounded-lg font-bold text-white hover:text-lime-950 ${
+              isLastSlideOverall 
+                ? 'bg-neutral-600 cursor-not-allowed' 
+                : 'bg-neutral-800 hover:bg-lime-500'
+            } transition-colors`}
             onClick={handleNext}
+            disabled={isLastSlideOverall}
           >
-            Next
+            {isLastSlideInChapter && !isLastChapter ? 'Next Chapter' : 'Next'}
           </motion.button>
         </div>
       </div>

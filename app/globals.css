@@ -54,3 +54,10 @@ li {
     border-radius: 3px;
   }
 }
+
+.gabarito {
+  font-family: "Gabarito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
