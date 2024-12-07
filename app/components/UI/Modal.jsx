@@ -38,7 +38,7 @@ const Modal = ({ showModal, closeModal, vocabLink, skillLink, examLink }) => {
             </button>
           </Link>
           {examLink && (
-            <Link href={skillLink}>
+            <Link href={examLink}>
               <button className="w-full text-2xl font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-neutral-800 to-neutral-900 hover:from-lime-400 hover:to-lime-600 hover:text-lime-950 text-white">
                 Skills overview
               </button>

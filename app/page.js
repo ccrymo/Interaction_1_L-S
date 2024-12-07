@@ -38,9 +38,8 @@ export default function Home() {
           </div>
         </button>
       </div>
-
-      <Modal showModal={showModalLS} closeModal={closeModalLS} vocabLink={"./books/L&S"} skillLink={"./components/Skills/LS"}  />
       <Modal showModal={showModalReading} closeModal={closeModalReading} vocabLink={"./books/reading"} examLink={"./components/Skills/Reading_Exam"} skillLink={"./components/Skills/Reading_Skills"} />
+      <Modal showModal={showModalLS} closeModal={closeModalLS} vocabLink={"./books/L&S"} skillLink={"./components/Skills/LS"}  />
 
     </div>
   );
