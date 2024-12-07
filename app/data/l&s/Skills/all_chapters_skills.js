@@ -53,7 +53,7 @@ const examRevision = {
       "Pronunciation",
     ],
   },
-  speakingPromptsTopic: {
+  speakingPresentationTopics: {
     Topic1:["Academic Life around the world."],
     Topic2:["Experiencing Nature."],
     Topic3:["Living to Eat or Eating to live."],

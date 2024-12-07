@@ -37,7 +37,7 @@ const ContentSlide = React.memo(({ title, content }) => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-neutral-900/30 pt-6 px-6 rounded-xl backdrop-blur-sm "
+              className="bg-neutral-900/30 pb-6 px-6 rounded-xl backdrop-blur-sm "
               key={key}
             >
               <h3 className="text-2xl font-bold mb-4 text-lime-400">
@@ -87,7 +87,7 @@ const ContentSlide = React.memo(({ title, content }) => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-neutral-900/30  px-6 rounded-xl -xl backdrop-blur-sm "
+              className="bg-neutral-900/30  pb-6 px-6 rounded-xl -xl backdrop-blur-sm "
               key={key}
             >
               <h3 className="text-2xl font-bold text-lime-400 mb-4">
@@ -154,7 +154,7 @@ const ContentSlide = React.memo(({ title, content }) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-neutral-900/30  px-6 rounded-xl -xl backdrop-blur-sm "
+            className="bg-neutral-900/30  pb-6 px-6 rounded-xl -xl backdrop-blur-sm "
             key={key}
           >
             <h3 className="text-2xl font-bold text-lime-400 mb-4">
@@ -168,11 +168,11 @@ const ContentSlide = React.memo(({ title, content }) => {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto w-full px-6 py-8 overflow-y-auto h-[calc(100vh-200px)]">
+    <div className="lg:mt-20  max-w-4xl mx-auto w-full px-6 py-8 overflow-y-auto h-[calc(100vh-200px)]">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-4xl font-bold text-lime-400 mb-8 text-center"
+        className="lg:mb-20 text-4xl font-extrabold text-lime-400  mb-8 text-center"
       >
         {capitalizeFirstLetter(title.split(/(?=[A-Z])/).join(" "))}
       </motion.h2>
@@ -199,8 +199,8 @@ const SlidesPage = () => {
         return "Listening";
       case "speakingExam":
         return "Speaking";
-      case "speakingPromptsTopic":
-        return "Speaking Prompts Topic";
+      case "speakingPresentationTopics":
+        return "Choose one of the topics";
       case "AcademicLifeAroundTheWorld":
         return "Academic Life Around The World";
       case "ExperiencingNature":
@@ -215,34 +215,23 @@ const SlidesPage = () => {
         return sectionKey;
     }
   }, [currentSection]);
-
+  
   const totalSlides = useMemo(() => {
-    let count = 0;
-    for (const section of Object.values(examRevision)) {
-      count += 1; // For the title slide
-      if (typeof section === "object" && section !== null) {
-        count += Object.keys(section).length - 1; // Subtract 1 to exclude the 'title' key if present
-      }
-    }
-    return count;
-  }, [examRevision]);
+    return Object.entries(examRevision).reduce((total, [_, sectionContent]) => {
+      // Add 2 for each section (title slide + content slide)
+      return total + 2;
+    }, 0);
+  }, []);
 
   const currentOverallSlide = useMemo(() => {
-    let slideIndex = 0;
-    for (let i = 0; i < state.currentSection; i++) {
-      const sectionSlides = Object.keys(sections[i][1]).length;
-      slideIndex += sectionSlides > 1 ? sectionSlides * 2 : 2; // Each section has a title and content slides
+    let count = state.currentSection * 2; // Each section has 2 slides
+    if (!state.isTitle) {
+      count += 1; // Add 1 if we're on the content slide
     }
-    if (state.isTitle) {
-      return slideIndex + 1;
-    } else {
-      return slideIndex + 1 + (Object.keys(currentSection[1]).length - 1);
-    }
-  }, [state, sections, currentSection]);
+    return count + 1; // Add 1 because we want to start from 1, not 0
+  }, [state.currentSection, state.isTitle]);
 
-  const progressPercentage = Math.round(
-    (currentOverallSlide / totalSlides) * 100
-  );
+  const progressPercentage = (currentOverallSlide / totalSlides) * 100;
 
   const handleNext = useCallback(() => {
     setState((prev) => {
@@ -293,21 +282,18 @@ const SlidesPage = () => {
   const isLastSlide =
     state.currentSection === sections.length - 1 && !state.isTitle;
 
-  return (
-    <div
-      {...handlers}
-      className="min-h-screen bg-neutral-900 text-white relative flex flex-col items-center"
-    >
-      <div className="fixed top-0 left-0 right-0 p-4 bg-neutral-900/80 backdrop-blur-sm z-10">
-        <div className="max-w-4xl mx-auto">
-          <ProgressHeader
-            chapterName={getChapterName()}
-            currentWordIndex={state.isTitle ? 0 : 1}
-            totalWordsInChapter={totalSlides}
-            overallProgress={progressPercentage}
-          />
+    return (
+      <div {...handlers} className="min-h-screen bg-neutral-900 text-white relative flex flex-col items-center">
+        <div className="fixed top-0 left-0 right-0 p-4 bg-neutral-900/80 backdrop-blur-sm z-10">
+          <div className="max-w-4xl mx-auto">
+            <ProgressHeader 
+              chapterName={getChapterName()}
+              currentWordIndex={currentOverallSlide - 1}
+              totalWordsInChapter={totalSlides}
+              overallProgress={progressPercentage}
+            />
+          </div>
         </div>
-      </div>
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -318,7 +304,7 @@ const SlidesPage = () => {
           className="flex-1 w-full pt-20"
         >
           {state.isTitle ? (
-            <TitleSlide title={currentSection[0]} />
+            <TitleSlide title={getChapterName(currentSection[0])} />
           ) : (
             <ContentSlide
               title={currentSection[0]}

@@ -53,7 +53,7 @@ li {
 @layer base {
   * {
     scrollbar-width: 30px;
-    scrollbar-color: rgba(179, 179, 179, 0.5) rgba(0, 0, 0, 0.1);
+    scrollbar-color: rgba(63, 63, 63, 0.5) rgba(0, 0, 0, 0.1);
     border-radius: 3px;
   }
 }
