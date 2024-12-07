@@ -1,4 +1,4 @@
-const examRevision = {
+const examRevision_LS = {
   Introduction: {
     title: "Listening and Speaking Final Exam Revision",
     studyTips: [
@@ -116,4 +116,4 @@ const examRevision = {
   },
 };
 
-export default examRevision;
+export default examRevision_LS;

@@ -18,8 +18,8 @@ const ProgressHeader = ({
     <div className="fixed top-0 left-0 right-0 p-4  bg-neutral-900/80 backdrop-blur-sm z-10">
       <div className="max-w-4xl mx-auto ">
         <div className="flex justify-between items-center mb-2 gabarito">
-          <span className="text-neutral-400 lg:text-xl md:text-lg">{chapterName}</span>
-          <span className="text-neutral-400 lg:text- md:text-lg ">
+          <span className="text-neutral-400  text-sm lg:text-xl md:text-lg">{chapterName}</span>
+          <span className="text-neutral-400 lg:text-xl md:text-lg">
             Slide: {currentWordIndex + 1} of {totalWordsInChapter}
           </span>
         </div>

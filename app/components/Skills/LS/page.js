@@ -4,8 +4,8 @@ import React from "react";
 import { useState, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSwipeable } from "react-swipeable";
-import examRevision from "../../data/l&s/Skills/all_chapters_skills";
-import { ProgressHeader } from "../UI/ProgressBar";
+import examRevision from "../../../data/l&s/Skills/examRevision_LS";
+import { ProgressHeader } from "../../UI/ProgressBar";
 
 const capitalizeFirstLetter = (string) => {
   if (typeof string !== "string") return string;
@@ -335,9 +335,7 @@ const SlidesPage = () => {
             onClick={handleNext}
             disabled={isLastSlide}
           >
-            {!state.isTitle && state.currentSection < sections.length - 1
-              ? "Next Section"
-              : "Next"}
+            Next
           </motion.button>
         </div>
       </div>
