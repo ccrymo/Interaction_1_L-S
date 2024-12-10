@@ -9,18 +9,22 @@ import { ProgressHeader } from "../../UI/ProgressBar";
 
 const capitalizeFirstLetter = (string) => {
   if (typeof string !== "string") return string;
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  // Split the string at capital letters and spaces
+  const words = string.split(/(?=[A-Z]|\s)/).map(word => 
+    word.charAt(0).toUpperCase() + word.slice(1)
+  );
+  return words.join(' ');
 };
 
 const TitleSlide = React.memo(({ title }) => (
   <div className="flex items-center justify-center h-[calc(100vh-200px)]">
     <motion.h2
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="text-6xl font-bold text-lime-400 text-center px-6"
-    >
-      {capitalizeFirstLetter(title.split(/(?=[A-Z])/).join(" "))}
-    </motion.h2>
+  initial={{ opacity: 0, y: -20 }}
+  animate={{ opacity: 1, y: 0 }}
+  className="lg:mb-20 text-4xl font-extrabold text-lime-400 mb-8 text-center"
+>
+  {capitalizeFirstLetter(title)}
+</motion.h2>
   </div>
 ));
 
@@ -287,7 +291,7 @@ const SlidesPage = () => {
         <div className="fixed top-0 left-0 right-0 p-4 bg-neutral-900/80 backdrop-blur-sm z-10">
           <div className="max-w-4xl mx-auto">
             <ProgressHeader 
-              chapterName={getChapterName()}
+              chapterName={capitalizeFirstLetter(getChapterName(currentSection[0]))}
               currentWordIndex={currentOverallSlide - 1}
               totalWordsInChapter={totalSlides}
               overallProgress={progressPercentage}

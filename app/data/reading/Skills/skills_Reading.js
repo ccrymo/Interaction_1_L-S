@@ -1,12 +1,23 @@
 const ExamSkills_Reading = {
-  "Pronoun Reference": {
-    IdentifyingWhatPronounsReferToInAText: [
-      'Example: In "John gave Mary the book. She read it quickly," "She" refers to Mary and "it" refers to the book.',
+ "Identifying the Title of the Passage/Text": {
+    UnderstandingHowTitlesRelateToTheMainTopic: [
+      "Titles often provide a concise summary or hint at the main idea of the text."
     ],
-    HelpsInFollowingTheFlowOfInformation: [
-      "Look for the most recent noun that matches the pronoun in gender and number."
+    CreatingAppropriateTitlesForGivenPassages: [
+      "A good title should capture the essence of the text in a few words."
     ],
-    PayAttentionToContextCluesSurroundingThePronounToDetermineItsReferent: []
+    ConsiderHowTheTitleSetsExpectationsForTheReaderAboutTheContent: []
+  },
+
+  "Skimming and Scanning": {
+    Skimming: [
+      "Quickly reading to get a general idea of the text",
+      "Read the first and last sentences of paragraphs to grasp the main points."
+    ],
+    Scanning: [
+      "Searching for specific information in a text",
+      "Look for keywords, numbers, or names related to your search."
+    ]
   },
   "Identifying the Main Idea and Supporting Details": {
     RecognizingTheCentralThoughtOfAPassage: [
@@ -18,6 +29,14 @@ const ExamSkills_Reading = {
     ],
     LookForRepeatedWordsOrPhrasesThatMightIndicateTheMainTopic: []
   },
+  "Identifying Main Ideas": {
+    RecognizingTheCentralThemeOrMessageOfAPassage: [
+      "Often found in the first or last sentence of a paragraph."
+    ],
+    DistinguishingBetweenMainIdeasAndSupportingDetails: [
+      "Main ideas are broad concepts; supporting details provide specific examples or evidence."
+    ]
+  },
   "Identifying Key Words in the Reading Passage": {
     RecognizingImportantWordsThatCarryMainMeaning: [
       "Focus on nouns, verbs, and adjectives that appear frequently or in prominent positions."
@@ -26,24 +45,12 @@ const ExamSkills_Reading = {
       "Key words often relate directly to the main idea or topic of the passage."
     ],
     PracticeHighlightingOrUnderliningKeyWordsAsYouReadToImproveComprehension: []
-  },
-  "Identifying the Title of the Passage/Text": {
-    UnderstandingHowTitlesRelateToTheMainTopic: [
-      "Titles often provide a concise summary or hint at the main idea of the text."
+  }, "Identifying Specific Details": {
+    LocatingImportantInformationWithinTheText: [
+      "Look for names, dates, numbers, and other specific facts."
     ],
-    CreatingAppropriateTitlesForGivenPassages: [
-      "A good title should capture the essence of the text in a few words."
-    ],
-    ConsiderHowTheTitleSetsExpectationsForTheReaderAboutTheContent: []
-  },
-  "Skimming and Scanning": {
-    Skimming: [
-      "Quickly reading to get a general idea of the text",
-      "Read the first and last sentences of paragraphs to grasp the main points."
-    ],
-    Scanning: [
-      "Searching for specific information in a text",
-      "Look for keywords, numbers, or names related to your search."
+    AnsweringQuestionsAboutPreciseFactsOrFigures: [
+      "Practice finding exact details quickly by scanning the text."
     ]
   },
   "Making Predictions": {
@@ -53,14 +60,24 @@ const ExamSkills_Reading = {
     EngagingInActiveReadingForImprovedComprehension: [
       'Regularly ask yourself "What might come next?" as you read.'
     ]
-  },
-  "Making Inferences": {
-    DrawingConclusionsBasedOnTextualInformation: [
-      'Example: If a text says "John grabbed his umbrella before leaving," we can infer it might be raining.'
+  },"Summarizing": {
+    CondensingMainPointsIntoABriefOverview: [
+      "Focus on the most important information, leaving out minor details."
     ],
-    UsingContextCluesToUnderstandImpliedMeanings: [
-      "Look for hints in surrounding sentences to guess what the author means indirectly."
+    RestatingKeyInformationInOnesOwnWords: [
+      "Avoid copying the text directly; use your own language to show understanding."
     ]
+  },
+
+ 
+  "Pronoun Reference": {
+    IdentifyingWhatPronounsReferToInAText: [
+      'Example: In "John gave Mary the book. She read it quickly," "She" refers to Mary and "it" refers to the book.',
+    ],
+    HelpsInFollowingTheFlowOfInformation: [
+      "Look for the most recent noun that matches the pronoun in gender and number."
+    ],
+    PayAttentionToContextCluesSurroundingThePronounToDetermineItsReferent: []
   },
   "Recognizing Text Structure": {
     IdentifyingOrganizationalPatternsInTexts: [
@@ -70,22 +87,7 @@ const ExamSkills_Reading = {
       'Look for transition words like "however," "therefore," or "in addition" to see how ideas link together.'
     ]
   },
-  "Summarizing": {
-    CondensingMainPointsIntoABriefOverview: [
-      "Focus on the most important information, leaving out minor details."
-    ],
-    RestatingKeyInformationInOnesOwnWords: [
-      "Avoid copying the text directly; use your own language to show understanding."
-    ]
-  },
-  "Identifying Specific Details": {
-    LocatingImportantInformationWithinTheText: [
-      "Look for names, dates, numbers, and other specific facts."
-    ],
-    AnsweringQuestionsAboutPreciseFactsOrFigures: [
-      "Practice finding exact details quickly by scanning the text."
-    ]
-  },
+  
   "Understanding Context Clues": {
     UsingSurroundingTextToDetermineMeaningOfUnfamiliarWords: [
       "Look at words before and after the unknown word for hints about its meaning."
@@ -118,22 +120,7 @@ const ExamSkills_Reading = {
       "Look for small differences that might make a statement false."
     ]
   },
-  "Predicting Outcomes": {
-    AnticipatingWhatMightHappenNextBasedOnGivenInformation: [
-      "Use clues from the text to guess future events or conclusions."
-    ],
-    EngagingCriticalThinkingSkillsToImaginePossibleScenarios: [
-      "Consider different possibilities and their likelihood based on the text."
-    ]
-  },
-  "Identifying Main Ideas": {
-    RecognizingTheCentralThemeOrMessageOfAPassage: [
-      "Often found in the first or last sentence of a paragraph."
-    ],
-    DistinguishingBetweenMainIdeasAndSupportingDetails: [
-      "Main ideas are broad concepts; supporting details provide specific examples or evidence."
-    ]
-  }
+ 
 };
 
 export default ExamSkills_Reading;

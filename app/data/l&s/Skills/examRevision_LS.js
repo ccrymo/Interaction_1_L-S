@@ -52,68 +52,113 @@ const examRevision_LS = {
       "Details",
       "Pronunciation",
     ],
+  },timeStructure: {
+    introduction: "1 minute",
+    mainBody: "1-1.5 minutes",
+    conclusion: "1 minute",
+    totalTime: "3-4 minutes"
   },
-  speakingPresentationTopics: {
-    Topic1:["Academic Life around the world."],
-    Topic2:["Experiencing Nature."],
-    Topic3:["Living to Eat or Eating to live."],
-    Topic4:["In the Community"],
-    Topic5:["Cultures around the World"],
+  planningSteps: {
+    topicSelection: [
+      "Choose appropriate vocabulary",
+      "Gather interesting supporting details",
+      "Find relevant pictures",
+      "Prepare facts and opinions",
+      "Ensure comprehensive topic coverage"
+    ]
   },
-  AcademicLifeAroundTheWorld: {
-    StudyingAbroadIsAGreatOpportunity: [
-      "What issues can students face while studying abroad?",
-      "Explain why studying abroad can be beneficial.",
+  presentationOrganization: {
+    introduction: [
+      "Begin with 'Hello/Good morning/afternoon'",
+      "Present your topic clearly",
+      "State what you will be discussing"
     ],
-    DormitoryLiving: [
-      "Advantages and disadvantages of dormitory living.",
-      "The effects on academic performance.",
+    mainDetails: [
+      "Present facts and opinions",
+      "Use appropriate pacing",
+      "Include regular pauses",
+      "Maintain steady breathing",
+      "Speak slowly and clearly"
     ],
+    conclusion: [
+      "Summarize key points",
+      "Share personal opinion/advice",
+      "Open floor for questions",
+      "End with 'Thank you for listening'"
+    ]
   },
-  ExperiencingNature: {
-    SportsHelpDevelopCharacterInChildrenAndTeens: [
-      "Benefits playing sports can have.",
-      "Examples of different sports that help develop character.",
-    ],
-    TakingAVacationIsBeneficial: [
-      "Which seasons are best for vacations?",
-      "Best places to visit/things to do on vacation and why?",
-    ],
+  submissionDetails: {
+    deadline: "December 22, 2024, 12:00 PM",
+    fileNaming: "Final presentation - Student name/section number",
+    platform: "eLearning link",
+    format: ".pptx"
   },
-  LivingToEatorEatingToLive: {
-    ExoticAndWeirdestFoodAroundTheWorld: [
-      "Examples of some different foods around the world that are weird.",
-      "Your experience or opinion on an exotic or weird food item.",
+  presentationPhrases: {
+    opening: [
+      "Good morning/Good afternoon ladies",
+      "The topic of my presentation today is...",
+      "What I'm going to talk about today is..."
     ],
-    HealthyAndUnhealthyFood: [
-      "Give examples of some healthy food. What makes it healthy?",
-      "Explain the disadvantages of empty calories.",
-      "Give examples of a balanced diet.",
+    establishingPurpose: [
+      "The purpose of this presentation is...",
+      "This is important because...",
+      "My objective is to...",
+      "The main goal today is to..."
     ],
+    mainContent: {
+      statingPoints: [
+        "Firstly...",
+        "Secondly...",
+        "Next...",
+        "Finally... we're going to look at..."
+      ],
+      transitions: [
+        "Now let's move on to...",
+        "This brings us to the next topic which is...",
+        "I'd like to turn to something completely different...",
+        "The next important element is..."
+      ],
+      addingDetails: [
+        "I'd like to expand on this aspect/problem/point...",
+        "Let me elaborate on that...",
+        "Would you like me to expand on/elaborate on that?"
+      ],
+      managingDigressions: [
+        "I'd like to digress here for a moment and just mention...",
+        "I might mention here that...",
+        "Let me go back to what I said earlier about..."
+      ]
+    }
   },
-  InTheCommunity: {
-    TheImportanceOfVolunteering: [
-      "Explain what volunteering means.",
-      "Give details of the benefits of volunteering.",
-      "Give examples of places where people can volunteer in Saudi Arabia.",
+  powerPointBestPractices: {
+    canDo: [
+      "Include key words",
+      "Use pictures as reminders",
+      "Glance at slides while speaking"
     ],
-    AGreatCommunity: [
-      "What interesting places does your community have, where are they?",
-      "Which outdoor activities are popular in your community?",
-    ],
+    mustNot: [
+      "Have notes in front of you",
+      "Read directly from slides",
+      "Speak too quietly",
+      "Stare at PowerPoint while talking"
+    ]
   },
-  CulturesAroundTheWorld: {
-    LearningAndExperiencingNewCustoms: [
-      "What do you find most exciting about learning new customs from other cultures?",
-      "Have you ever followed a custom or tradition from another culture? What was it?",
-      "If you could introduce a custom from your culture to the world, which one would you choose? Why?",
+  concluding: {
+    summarizing: [
+      "I'd like to recap the main points of my presentation",
+      "First I covered...",
+      "Then we talked about...",
+      "Finally we looked at..."
     ],
-    ComingOfAgeCeremoniesInDifferentCulturesProsAndCons: [
-      "Explain what a coming-of-age ceremony is.",
-      "Why do you think coming-of-age ceremonies are important in some cultures?",
-      "What are the challenges or issues young people might face during these ceremonies?",
+    closing: [
+      "In conclusion, let me...",
+      "List key points: First, Second, Third"
     ],
-  },
+    QandA: [
+      "Now I'd like to invite any questions you may have",
+      "Do you have any questions?"
+    ]
+  }
 };
 
 export default examRevision_LS;
