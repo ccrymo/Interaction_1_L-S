@@ -1,6 +1,13 @@
 import Link from "next/link";
 
-const Modal = ({ showModal, closeModal, vocabLink, skillLink, examLink }) => {
+const Modal = ({
+  showModal,
+  closeModal,
+  vocabLink,
+  skillLink,
+  examLink,
+  practiceLink,
+}) => {
   if (!showModal) return null;
 
   return (
@@ -8,13 +15,15 @@ const Modal = ({ showModal, closeModal, vocabLink, skillLink, examLink }) => {
       <div className="bg-neutral-900 p-8 rounded-lg relative">
         <button
           onClick={closeModal}
-          className="absolute top-2 right-2 text-white hover:text-lime-200 ">
+          className="absolute top-2 right-2 text-white hover:text-lime-200 "
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor">
+            stroke="currentColor"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -39,6 +48,13 @@ const Modal = ({ showModal, closeModal, vocabLink, skillLink, examLink }) => {
             <Link href={skillLink}>
               <button className="w-full text-2xl font-bold py-3 px-6 rounded-lg bg-gradient-to-r from-neutral-800 to-neutral-900 hover:from-lime-400 hover:to-lime-600 hover:text-lime-950 text-white">
                 Skills overview
+              </button>
+            </Link>
+          )}
+          {practiceLink && (
+            <Link href={practiceLink}>
+              <button className="w-full text-xl font-bold mt-5 py-3 px-6 rounded-lg bg-gradient-to-r from-neutral-200 to-neutral-400 hover:from-lime-400 hover:to-lime-600 hover:text-lime-950 text-neutral-950">
+                Mock Exam{" "}
               </button>
             </Link>
           )}
