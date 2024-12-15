@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import ReadingTextIMG from "@/app/img/ReadingTextIMG";
 import QuizButtonIMG from "@/app/img/QuizButtonIMG";

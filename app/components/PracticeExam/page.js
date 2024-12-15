@@ -6,7 +6,6 @@ import SubmitButton from "./UI/SubmitButton";
 import Header from "./UI/Header";
 import CompletionModal from "./UI/CompletionModal";
 import quizData from "../../data/practiceExam/practiceExam";
-import QuizButton from "./UI/QuizButton";
 
 export default function Home() {
   // State management

@@ -1,3 +1,5 @@
+'use client';
+
 const OverlayMessage = ({ message, isVisible, onClose }) => {
   if (!isVisible) return null;
 
