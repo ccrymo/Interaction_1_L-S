@@ -7,6 +7,7 @@ module.exports = {
   ],
   theme: {
     darkMode: false,
+    
     extend: {
       colors: {
         background: "var(--background)",

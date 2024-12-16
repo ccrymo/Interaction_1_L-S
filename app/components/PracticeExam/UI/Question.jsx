@@ -12,9 +12,11 @@ const Question = ({
   onOverlayClose,
 }) => {
   return (
-    <div className="flex flex-col justify-center items-center h-full">
-      <div className="mb-4 overflow-y-auto scroll scrollbar-thin scrollbar-thumb-gray-400 max-h-[calc(100vh-200px)]">
-        <h3 className="mb-4 text-xl font-bold text-center">{question}</h3>
+    <div className="flex flex-col justify-center items-center h-full lg:mt-28 lg:mb-5 md:mt-20">
+      <div className="mb-4 overflow-y-auto scroll scrollbar scrollbar-thumb-gray-400 max-h-screen">
+        <h3 className="mb-4 lg:text-4xl text-2xl font-bold text-center text-white ">
+          {question}
+        </h3>
         {options.map((option, index) => (
           <Button
             key={index}

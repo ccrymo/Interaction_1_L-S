@@ -46,7 +46,7 @@ export default function Home() {
         vocabLink={"./books/reading"}
         examLink={"./components/Skills/Reading_Exam"}
         skillLink={"./components/Skills/Reading_Skills"}
-        practiceLink={"./components/Skills/Practice"}
+        practiceLink={"./components/PracticeExam"}
       />
       <Modal
         showModal={showModalLS}

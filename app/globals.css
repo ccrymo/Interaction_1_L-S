@@ -9,7 +9,6 @@
   font-style: normal;
 }
 
-
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
@@ -48,13 +47,9 @@ li {
   margin: 0.5rem 0;
 }
 
-
-
 @layer base {
   * {
     scrollbar-width: 30px;
     scrollbar-color: rgba(63, 63, 63, 0.5) rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
   }
 }
-

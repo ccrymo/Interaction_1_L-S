@@ -1,18 +1,20 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Question from "./UI/Question";
 import ReadingText from "./UI/ReadingText";
 import SubmitButton from "./UI/SubmitButton";
 import Header from "./UI/Header";
 import CompletionModal from "./UI/CompletionModal";
-import quizData from "../../data/practiceExam/practiceExam";
+import quizData from "../../data/reading/practiceExam/practiceExam";
 
 export default function Home() {
   // State management
-  const [currentQuestionSet, setCurrentQuestionSet] = useState(1);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [totalQuestions, setTotalQuestions] = useState(0);
+  const [totalQuestions, setTotalQuestions] = useState(
+    quizData.questions.length
+  );
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isAnswerSelected, setIsAnswerSelected] = useState(false);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
@@ -24,15 +26,6 @@ export default function Home() {
   const readingTextContent = quizData.readingText;
   const readingTextTitle = quizData.readingTextTitle;
 
-  // Calculate total questions on component mount
-  useEffect(() => {
-    const totalQuestionsCount = Object.keys(quizData)
-      .filter((key) => key.startsWith("questions"))
-      .reduce((total, key) => total + quizData[key].length, 0);
-
-    setTotalQuestions(totalQuestionsCount);
-  }, []);
-
   // Timer handlers
   const handleTimeUp = () => {
     setIsTimeUp(true);
@@ -42,7 +35,7 @@ export default function Home() {
   const handleSelect = (questionNumber, option) => {
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
-      [`question${currentQuestionSet}_${questionNumber}`]: option,
+      [`question_${questionNumber}`]: option,
     }));
     setIsAnswerSelected(true);
   };
@@ -55,16 +48,8 @@ export default function Home() {
 
   // Navigation handlers
   const moveToNextQuestion = () => {
-    const questionSet = quizData[`questions${currentQuestionSet}`];
-    if (currentQuestionIndex < questionSet.length - 1) {
+    if (currentQuestionIndex < totalQuestions - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-    } else if (
-      currentQuestionSet <
-      Object.keys(quizData).filter((key) => key.startsWith("questions")).length
-    ) {
-      setCurrentQuestionSet((prevSet) => prevSet + 1);
-      setCurrentQuestionIndex(0);
-      setAnswers({});
     } else {
       setIsQuizCompleted(true);
     }
@@ -73,10 +58,8 @@ export default function Home() {
 
   // Submit handler
   const handleSubmit = () => {
-    const questionSet = quizData[`questions${currentQuestionSet}`];
-    const currentQuestion = questionSet[currentQuestionIndex];
-    const selectedAnswer =
-      answers[`question${currentQuestionSet}_${currentQuestion.number}`];
+    const currentQuestion = quizData.questions[currentQuestionIndex];
+    const selectedAnswer = answers[`question_${currentQuestion.number}`];
     const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
 
     if (isCorrect) {
@@ -88,21 +71,15 @@ export default function Home() {
 
   // Question number calculator
   const getCurrentOverallQuestionNumber = () => {
-    let previousQuestionsCount = 0;
-    for (let i = 1; i < currentQuestionSet; i++) {
-      previousQuestionsCount += quizData[`questions${i}`].length;
-    }
-    return previousQuestionsCount + currentQuestionIndex + 1;
+    return currentQuestionIndex + 1;
   };
 
   // Question renderer
   const renderQuestions = () => {
-    const questionSet = quizData[`questions${currentQuestionSet}`];
-    if (!questionSet || currentQuestionIndex >= questionSet.length) return null;
+    if (currentQuestionIndex >= totalQuestions) return null;
 
-    const q = questionSet[currentQuestionIndex];
-    const selectedAnswer =
-      answers[`question${currentQuestionSet}_${q.number}`];
+    const q = quizData.questions[currentQuestionIndex];
+    const selectedAnswer = answers[`question_${q.number}`];
     const isCorrect = selectedAnswer === q.correctAnswer;
 
     return (
@@ -140,6 +117,8 @@ export default function Home() {
         timeLimit={3600}
         isQuestionView={isQuestionView}
         onToggleView={toggleView}
+        isQuizCompleted={isQuizCompleted}
+        isTimeUp={isTimeUp}
       />
 
       <div className="flex flex-1 pt-16">
@@ -148,27 +127,31 @@ export default function Home() {
           <ReadingText content={readingTextContent} title={readingTextTitle} />
         </div>
         <div className="hidden md:block md:w-1/2 h-full p-4 flex flex-col">
-          <div className="overflow-y-auto flex-grow">
-            {renderQuestions()}
-          </div>
-          <div className="mt-auto">
+          <div className="overflow-y-auto flex-grow">{renderQuestions()}</div>
+          <div className="mt-5 ">
             <SubmitButton onClick={handleSubmit} disabled={!isAnswerSelected} />
-          </div>
         </div>
-
+        </div>
+     
         {/* Mobile View */}
         <div className="w-full md:hidden">
           {!isQuestionView ? (
             <div className="h-[calc(100vh-120px)]">
-              <ReadingText content={readingTextContent} title={readingTextTitle} />
+              <ReadingText
+                content={readingTextContent}
+                title={readingTextTitle}
+              />
             </div>
           ) : (
             <div className="p-4 h-[calc(100vh-120px)] flex flex-col">
               <div className="overflow-y-auto flex-grow">
                 {renderQuestions()}
               </div>
-              <div className="mt-auto">
-                <SubmitButton onClick={handleSubmit} disabled={!isAnswerSelected} />
+              <div className="absolute bottom-0 left-0 w-full">
+                <SubmitButton
+                  onClick={handleSubmit}
+                  disabled={!isAnswerSelected}
+                />
               </div>
             </div>
           )}
@@ -186,5 +169,4 @@ export default function Home() {
       )}
     </div>
   );
-  
 }

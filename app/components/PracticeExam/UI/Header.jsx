@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useEffect } from "react";
 import QuizButton from "./QuizButton";
@@ -11,42 +11,49 @@ const Header = ({
   onTimeUp,
   isQuestionView,
   onToggleView,
+  isQuizCompleted,
+  isTimeUp,
 }) => {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(100); // Start at 100%
 
   useEffect(() => {
-    setProgress(0);
+    // Only reset progress when the quiz is completed or time runs out
+    if (isQuizCompleted || isTimeUp) {
+      setProgress(100);
+    }
+
     const timer = setInterval(() => {
       setProgress((prevProgress) => {
-        if (prevProgress >= 100) {
+        if (prevProgress <= 0) {
           clearInterval(timer);
           onTimeUp?.(); // Call onTimeUp when timer completes
-          return 100;
+          return 0;
         }
-        return prevProgress + 100 / (timeLimit * 10);
+        return prevProgress - 100 / (timeLimit * 10); // Decrease progress
       });
     }, 100);
 
     return () => clearInterval(timer);
-  }, [currentQuestion, timeLimit, onTimeUp]);
+  }, [isQuizCompleted, isTimeUp, timeLimit, onTimeUp]);
 
   const getColor = () => {
-    if (progress < 50) return "bg-green-500";
-    if (progress < 75) return "bg-yellow-500";
+    if (progress > 50) return "bg-cyan-500";
+    if (progress > 25) return "bg-yellow-500";
     return "bg-red-500";
   };
+
   return (
     <div className="fixed top-0 left-0 right-0 z-10">
       <header className="bg-stone-800 text-white flex justify-between items-stretch shadow-lg filter drop-shadow-2xl">
         <div className="flex items-center space-x-2 text-lg p-4">
-          <span className="font-bold">Progress:</span>
-          <span>
-            {currentQuestion}/{totalQuestions}
+          <span className="font-bold text-stone-300">Q?</span>
+          <span className="text-white">
+            {currentQuestion} / {totalQuestions}
           </span>
-          <span className="text-gray-400">|</span>
-          <span className="font-bold">Score:</span>
-          <span>
-            {correctAnswers}/{totalQuestions}
+          <span className="text-stone-300">|</span>
+          <span className="font-bold text-stone-300">Score:</span>
+          <span className="text-white">
+            {correctAnswers} / {totalQuestions}
           </span>
         </div>
         <QuizButton isQuestionView={isQuestionView} onClick={onToggleView} />
