@@ -12,9 +12,7 @@ export default function Home() {
   // State management
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [totalQuestions, setTotalQuestions] = useState(
-    quizData.questions.length
-  );
+  const [totalQuestions, setTotalQuestions] = useState(quizData.questions.length);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isAnswerSelected, setIsAnswerSelected] = useState(false);
   const [isQuizCompleted, setIsQuizCompleted] = useState(false);
@@ -22,9 +20,28 @@ export default function Home() {
   const [showAnswerOverlay, setShowAnswerOverlay] = useState(false);
   const [isTimeUp, setIsTimeUp] = useState(false);
 
-  // Content from quiz data
-  const readingTextContent = quizData.readingText;
-  const readingTextTitle = quizData.readingTextTitle;
+  // Function to create paragraphs
+  const createParagraphs = (text) => {
+    return text.split('\n\n').map((paragraph, index) => (
+      <p key={index} className="mb-4">{paragraph}</p>
+    ));
+  };
+
+  // Function to get the correct reading text and title
+  const getReadingContent = () => {
+    if (currentQuestionIndex < 15) {
+      return {
+        title: quizData.readingTextTitle01,
+        content: createParagraphs(quizData.readingText01)
+      };
+    } else if (currentQuestionIndex < 33) {
+      return {
+        title: quizData.readingTextTitle02,
+        content: createParagraphs(quizData.readingText02)
+      };
+    }
+    return { title: "", content: "" };
+  };
 
   // Timer handlers
   const handleTimeUp = () => {
@@ -124,13 +141,16 @@ export default function Home() {
       <div className="flex flex-1 pt-16">
         {/* Desktop View */}
         <div className="hidden md:block md:w-1/2 h-full">
-          <ReadingText content={readingTextContent} title={readingTextTitle} />
+          <ReadingText
+            content={getReadingContent().content}
+            title={getReadingContent().title}
+          />
         </div>
         <div className="hidden md:block md:w-1/2 h-full p-4 flex flex-col">
           <div className="overflow-y-auto flex-grow">{renderQuestions()}</div>
-          <div className="mt-5 ">
+          <div className="mt-5">
             <SubmitButton onClick={handleSubmit} disabled={!isAnswerSelected} />
-        </div>
+          </div>
         </div>
      
         {/* Mobile View */}
@@ -138,8 +158,8 @@ export default function Home() {
           {!isQuestionView ? (
             <div className="h-[calc(100vh-120px)]">
               <ReadingText
-                content={readingTextContent}
-                title={readingTextTitle}
+                content={getReadingContent().content}
+                title={getReadingContent().title}
               />
             </div>
           ) : (

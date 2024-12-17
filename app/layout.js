@@ -8,6 +8,7 @@ const geistSans = localFont({
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -24,13 +25,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
           <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Racing+Sans+One&display=swap" rel="stylesheet" />
-        </head>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
         <Analytics />
-
       </body>
     </html>
   );
