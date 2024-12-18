@@ -489,7 +489,7 @@ const quizData = {
     },
     {
       number: 53,
-      question: "The temperatures are ______. Its not that hot or cold these days.",
+      question: "The temperatures are ______. It's not that hot or cold these days.",
       options: [
          "proven (adj)",
          "moderate (adj)",
@@ -781,115 +781,6 @@ const quizData = {
       correctAnswer: "altitude",
     }, {
       number: 81,
-      question: "Regular physical _____ is essential for maintaining good health.",
-      options: [
-        "activity",
-        "exercise",
-        "movement",
-        "action"
-      ],
-      correctAnswer: "activity",
-    },
-    {
-      number: 82,
-      question: "Studies have shown that exercise _____ the risk of various diseases.",
-      options: [
-        "increases",
-        "reduces",
-        "maintains",
-        "stabilizes"
-      ],
-      correctAnswer: "reduces",
-    },
-    {
-      number: 83,
-      question: "Outdoor activities in _____ environments can be particularly beneficial.",
-      options: [
-        "polluted",
-        "unpolluted",
-        "indoor",
-        "artificial"
-      ],
-      correctAnswer: "unpolluted",
-    },
-    {
-      number: 84,
-      question: "It's important to note that only _____ advice from health professionals should be followed.",
-      options: [
-        "valid",
-        "invalid",
-        "general",
-        "basic"
-      ],
-      correctAnswer: "valid",
-    },
-    {
-      number: 85,
-      question: "A balanced diet rich in _____ ingredients is crucial for maintaining overall health.",
-      options: [
-        "natural",
-        "artificial",
-        "processed",
-        "preserved"
-      ],
-      correctAnswer: "natural",
-    },
-    {
-      number: 86,
-      question: "People should _____ foods high in essential nutrients and vitamins.",
-      options: [
-        "avoid",
-        "consume",
-        "ignore",
-        "preserve"
-      ],
-      correctAnswer: "consume",
-    },
-    {
-      number: 87,
-      question: "Avoiding processed foods with artificial _____ can be highly beneficial for long-term health.",
-      options: [
-        "ingredients",
-        "preservatives",
-        "flavors",
-        "colors"
-      ],
-      correctAnswer: "preservatives",
-    },
-    {
-      number: 88,
-      question: "Eating in _____ helps prevent weight gain and other health issues.",
-      options: [
-        "excess",
-        "moderation",
-        "groups",
-        "public"
-      ],
-      correctAnswer: "moderation",
-    },
-    {
-      number: 89,
-      question: "It is _____ that eating fruits and vegetables can prevent chronic diseases.",
-      options: [
-        "proven",
-        "disproven",
-        "uncertain",
-        "unlikely"
-      ],
-      correctAnswer: "proven",
-    },
-    {
-      number: 90,
-      question: "For personalized advice, seek _____ guidance from a registered dietitian or healthcare professional.",
-      options: [
-        "expert",
-        "amateur",
-        "general",
-        "vague"
-      ],
-      correctAnswer: "expert",
-    },{
-      number: 91,
       question: "A self-centered person _______.",
       options: [
          "is selfish and only cares about herself",
@@ -900,7 +791,7 @@ const quizData = {
       correctAnswer:  "is selfish and only cares about herself",
     },
     {
-      number: 92,
+      number: 82,
       question: "The toddler's behavior at the store was unruly, running and shouting everywhere.",
       options: [
          "well-behaved",
@@ -911,7 +802,7 @@ const quizData = {
       correctAnswer:  "difficult to control",
     },
     {
-      number: 93,
+      number: 83,
       question: "Sarah's explanation was ambiguous, leaving everyone confused.",
       options: [
          "clear and direct",
@@ -922,7 +813,7 @@ const quizData = {
       correctAnswer:  "vague and unclear",
     },
     {
-      number: 94,
+      number: 84,
       question: "The girl was reluctant to share her toy with her younger brother.",
       options: [
          "eager and willing",
@@ -933,7 +824,7 @@ const quizData = {
       correctAnswer:  "hesitant and unwilling",
     },
     {
-      number: 95,
+      number: 85,
       question: "The medicine provided temporary relief for his headache.",
       options: [
          "lasting forever",
@@ -944,7 +835,7 @@ const quizData = {
       correctAnswer:  "lasting for a short time",
     },
     {
-      number: 96,
+      number: 86,
       question: "The old chair was fragile and needed to be handled with care.",
       options: [
          "strong and sturdy",
@@ -955,7 +846,7 @@ const quizData = {
       correctAnswer:  "weak and easily broken",
     },
     {
-      number: 97,
+      number: 87,
       question: "John felt nostalgic as he looked through his childhood photo album.",
       options: [
          "happy and satisfied",
@@ -966,7 +857,7 @@ const quizData = {
       correctAnswer:  "longing for the past",
     },
     {
-      number: 98,
+      number: 88,
       question: "The company's generous donation helped the local charity meet its goals.",
       options: [
          "selfish and greedy",
@@ -977,7 +868,7 @@ const quizData = {
       correctAnswer:  "kind and giving",
     },
     {
-      number: 99,
+      number: 89,
       question: "The man's speech was so tedious that half the audience fell asleep.",
       options: [
          "interesting and exciting",
@@ -988,7 +879,7 @@ const quizData = {
       correctAnswer:  "dull and boring",
     },
     {
-      number: 100,
+      number: 90,
       question: "The scientist had a meticulous approach, ensuring every detail was perfect.",
       options: [
          "careless and messy",
@@ -998,7 +889,7 @@ const quizData = {
       ],
       correctAnswer:  "precise and careful",
     }, {
-      number: 101,
+      number: 91,
       question: "Paragraph: Although many people think a koala is a bear, it is not. The koala is a type of mammal called a marsupial. A kangaroo is also a marsupial. These mammals carry their babies in a pouch. The kangaroo's pouch is on her stomach, but the koala's pouch is on her back. Both feed their babies milk and keep them secure in their pouch until they are strong enough to survive on their own.",
       options: [
          "The koala is not a bear.",
@@ -1009,7 +900,7 @@ const quizData = {
       correctAnswer:  "The kangaroo and koala are mostly alike but have some differences.",
     },
     {
-      number: 102,
+      number: 92,
       question: "Paragraph: Elephants are known for their intelligence and strong family bonds. They use tools, communicate using a variety of sounds, and even show emotions like grief and joy.",
       options: [
          "Elephants are intelligent and emotional creatures.",
@@ -1020,7 +911,7 @@ const quizData = {
       correctAnswer:  "Elephants are intelligent and emotional creatures.",
     },
     {
-      number: 103,
+      number: 93,
       question: "Paragraph: The invention of the internet has transformed the way we communicate. Emails, social media, and video calls have made it easier to stay in touch with loved ones, no matter where they are in the world.",
       options: [
          "Emails are a common way to communicate.",
@@ -1031,7 +922,7 @@ const quizData = {
       correctAnswer:  "The internet has revolutionized communication.",
     },
     {
-      number: 104,
+      number: 94,
       question: "Paragraph: Exercise is not only good for physical health but also for mental well-being. It can reduce stress, improve mood, and boost energy levels.",
       options: [
          "Exercise is good for mental health.",
@@ -1042,7 +933,7 @@ const quizData = {
       correctAnswer:  "Exercise benefits both mental and physical health.",
     },
     {
-      number: 105,
+      number: 95,
       question: "Paragraph: Recycling is an essential part of protecting the environment. It helps reduce waste, conserves natural resources, and decreases pollution.",
       options: [
          "Recycling helps protect the environment.",
@@ -1053,7 +944,7 @@ const quizData = {
       correctAnswer:  "Recycling helps protect the environment.",
     },
     {
-      number: 106,
+      number: 96,
       question: "Paragraph: The smartphone has become a vital tool in our daily lives. From checking emails and managing schedules to keeping in touch with friends, smartphones have revolutionized the way we work and communicate.",
       options: [
          "Smartphones are used for checking emails.",
@@ -1064,7 +955,7 @@ const quizData = {
       correctAnswer:  "Smartphones are a vital part of modern life.",
     },
     {
-      number: 107,
+      number: 97,
       question: "Paragraph: The Amazon rainforest is one of the most biodiverse regions in the worl It is home to millions of species, many of which are not found anywhere else.",
       options: [
          "The Amazon rainforest is large and beautiful.",
@@ -1075,7 +966,7 @@ const quizData = {
       correctAnswer:  "The Amazon rainforest is rich in biodiversity.",
     },
     {
-      number: 108,
+      number: 98,
       question: "Paragraph: Eating a balanced diet is essential for good health. It provides the body with necessary nutrients, improves energy levels, and strengthens the immune system.",
       options: [
          "A balanced diet strengthens the immune system.",
@@ -1086,7 +977,7 @@ const quizData = {
       correctAnswer:  "Good health depends on eating well.",
     },
     {
-      number: 109,
+      number: 99,
       question: "Paragraph: The Great Wall of China is a historical monument that attracts millions of tourists each year. It was originally built to protect the empire and is now considered a symbol of Chinese culture and history.",
       options: [
          "The Great Wall is a historical site and cultural symbol.",
@@ -1097,7 +988,7 @@ const quizData = {
       correctAnswer:  "The Great Wall is a historical site and cultural symbol.",
     },
     {
-      number: 110,
+      number: 100,
       question: "Paragraph: Climate change is causing temperatures to rise, ice caps to melt, and weather patterns to become more extreme. These changes are affecting ecosystems and human populations worldwide.",
       options: [
          "Climate change is a global issue.",
