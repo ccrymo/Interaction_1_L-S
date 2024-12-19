@@ -621,8 +621,8 @@ const quizData = {
       question: "Regular physical _____ is essential for maintaining good health.",
       options: [
         "activity",
-        "exercise",
-        "movement",
+        "exerciser",
+        "move",
         "action"
       ],
       correctAnswer: "activity",
@@ -686,9 +686,9 @@ const quizData = {
       question: "Portugal wanted to win, but the ___________ team (morocco) had better players.",
       options: [
         "opposing",
-        "competing",
-        "rival",
-        "opponent"
+        "competion",
+        "rivals",
+        "opposer"
       ],
       correctAnswer: "opposing",
     },
@@ -697,9 +697,9 @@ const quizData = {
       question: "After FYP you have to ___________ what you want to specialize at.",
       options: [
         "decide",
-        "choose",
-        "select",
-        "determine"
+        "chooses",
+        "selecting",
+        "show"
       ],
       correctAnswer: "decide",
     },
@@ -707,12 +707,12 @@ const quizData = {
       number: 74,
       question: "Everyone loves the smell of the perfume, it's a ___________of both Oud and Amber.",
       options: [
-        "combination",
-        "mixture",
+        "combined",
+        "mixtures",
         "blend",
-        "fusion"
+        "fusions"
       ],
-      correctAnswer: "combination",
+      correctAnswer: "blend",
     },
     {
       number: 75,
@@ -730,9 +730,9 @@ const quizData = {
       question: "I'm so ___________ with my friend, she keeps distracting me!",
       options: [
         "annoyed",
-        "irritated",
-        "frustrated",
-        "upset"
+        "irritating",
+        "frustrating",
+        "confused"
       ],
       correctAnswer: "annoyed",
     },
@@ -741,9 +741,9 @@ const quizData = {
       question: "It's so rude to say old! You should say '________'!",
       options: [
         "elderly",
-        "aged",
-        "senior",
-        "mature"
+        "young",
+        "junior",
+        "olderly"
       ],
       correctAnswer: "elderly",
     },
@@ -752,9 +752,9 @@ const quizData = {
       question: "Sadly, there is no ________ for cancer.",
       options: [
         "cure",
-        "remedy",
-        "treatment",
-        "solution"
+        "remedies",
+        "treatments",
+        "solutions"
       ],
       correctAnswer: "cure",
     },
@@ -763,9 +763,9 @@ const quizData = {
       question: "The researchers were _________ about their new discovery in the field of medicine.",
       options: [
         "excited",
-        "enthusiastic",
-        "thrilled",
-        "eager"
+        "enthusiasting",
+        "thrilling",
+        "eagerly"
       ],
       correctAnswer: "excited",
     },
@@ -774,7 +774,7 @@ const quizData = {
       question: "Tourists prefer to visit areas with high _________ for cleaner air and scenic views.",
       options: [
         "altitude",
-        "elevation",
+        "elevating",
         "height",
         "level"
       ],
